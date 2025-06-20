@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Gym Registration</title>
+</head>
+<body>
+<h2>Gym Registration Form</h2>
+<form action="#" th:action="@{/register}" th:object="${member}" method="post">
+    Name: <input type="text" th:field="*{name}" /><br/>
+    Age: <input type="number" th:field="*{age}" /><br/>
+    Gender: <input type="text" th:field="*{gender}" /><br/>
+    Weight: <input type="number" step="0.1" th:field="*{weight}" /><br/>
+    Height: <input type="number" step="0.1" th:field="*{height}" /><br/>
+    Phone: <input type="text" th:field="*{phone}" /><br/>
+    Email: <input type="email" th:field="*{email}" /><br/>
+    Address: <textarea th:field="*{address}"></textarea><br/>
+    <button type="submit">Register</button>
+</form>
+<p th:text="${message}"></p>
+</body>
+</html>

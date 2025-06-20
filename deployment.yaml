@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gym-registration-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: gym-registration
+  template:
+    metadata:
+      labels:
+        app: gym-registration
+    spec:
+      containers:
+      - name: gym-registration
+        image: your-dockerhub-username/gym-registration:latest
+        ports:
+        - containerPort: 8080
+        env:
+        - name: SPRING_DATASOURCE_URL
+          value: "jdbc:mysql://<your-rds-endpoint>:3306/gymdb"
+        - name: SPRING_DATASOURCE_USERNAME
+          value: "your_db_username"
+        - name: SPRING_DATASOURCE_PASSWORD
+          value: "your_db_password"

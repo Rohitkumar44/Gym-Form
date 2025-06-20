@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: gym-registration-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: gym-registration
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
